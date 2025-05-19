@@ -1,9 +1,16 @@
-import React from 'react'
+import Sidebarnavigation from "@/components/Sidebar-navigation";
+import React from "react";
 
 const page = () => {
   return (
-    <div>page</div>
-  )
-}
+    <>
+      <div className="container mx-auto flex flex-row">
+        <Sidebarnavigation />
 
-export default page
+        <div className="w-full">page</div>
+      </div>
+    </>
+  );
+};
+
+export default page;
