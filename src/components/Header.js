@@ -1,96 +1,99 @@
-// "use client"
-// import { useState } from 'react';
-
-// const Header = () => {
-//   const [isMenuOpen, setIsMenuOpen] = useState(false);
-
-//   return (
-//     <header
-//       className="w-full max-w-[884.67px] h-auto min-h-[85.5px] bg-[#FFFCF8] mx-auto flex flex-col md:flex-row md:items-center justify-between px-4 py-3 md:py-0 relative"
-//     >
-//       {/* Logo */}
-//       <div className="flex items-center justify-between">
-//         <div className="font-bold text-xl">Sowears</div>
-
-//         {/* Mobile Menu Button */}
-//         <button
-//           className="md:hidden focus:outline-none"
-//           onClick={() => setIsMenuOpen(!isMenuOpen)}
-//           aria-label="Toggle menu"
-//         >
-//           {isMenuOpen ? (
-//             <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-//               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-//             </svg>
-//           ) : (
-//             <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-//               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-//             </svg>
-//           )}
-//         </button>
-//       </div>
-
-//       {/* Navigation */}
-//       <nav className={`${isMenuOpen ? 'flex' : 'hidden'} md:flex flex-col md:flex-row space-y-3 md:space-y-0 md:space-x-4 mt-4 md:mt-0 text-xs font-medium w-full md:w-auto`}>
-//         <a href="#" className="hover:underline">HOME</a>
-//         <a href="#" className="hover:underline">BEST-SELLERS</a>
-//         <a href="#" className="hover:underline">NEW ARRIVALS</a>
-//         <a href="#" className="hover:underline">CO-ORDS</a>
-//         <a href="#" className="hover:underline">SUMMER</a>
-//         <a href="#" className="hover:underline">SHIRTS</a>
-//       </nav>
-
-//       {/* Account and Cart */}
-//       <div className={`${isMenuOpen ? 'flex' : 'hidden'} md:flex items-center space-x-4 mt-4 md:mt-0`}>
-//         <button aria-label="Account">
-//           <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-//             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-//           </svg>
-//         </button>
-//         <button aria-label="Shopping cart">
-//           <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-//             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
-//           </svg>
-//         </button>
-//       </div>
-//     </header>
-//   );
-// };
-
-// export default Header;
-
-"use client";
 import React from "react";
-import { GiHamburgerMenu } from "react-icons/gi";
-import { SlEnvolopeLetter } from "react-icons/sl";
-import { FaUserCircle } from "react-icons/fa";
-import { IoMdSearch } from "react-icons/io";
-import { MdOutlineShoppingBag } from "react-icons/md";
+import { MainLogo } from "./svgs/svg";
+import { FaShoppingBag } from "react-icons/fa";
+import { LuSearch } from "react-icons/lu";
+// ------------------------------------------------
+const offerNow = (
+  <>
+    <div className="w-full h-6 bg-black flex items-center justify-center">
+      <p className="text-white p-8 text-[12px]">
+        🚚 Free Shipping Nationwide! | 🎁 Get PKR 300 OFF on First Order – Use
+        Code: FLAT300
+      </p>
+    </div>
+  </>
+);
+
+const TopHeader = (
+  <>
+    <div className="w-full h-20  flex flex-row items-center justify-between gap-2 p-3 ">
+      {/* brand logo */}
+      <div>
+        <MainLogo className="ml-2" />
+      </div>
+      {/* search bar and categery */}
+
+      <div className="relative w-full md:w-1/2 flex">
+        {/* Category dropdown */}
+        <div className="relative">
+          <select className="h-full px-3 py-2 bg-[#F5F5F5] border border-gray-300 rounded-l-md outline-none text-gray-500">
+            <option>All</option>
+            <option>Women</option>
+            <option>Men</option>
+            <option>Kids</option>
+          </select>
+        </div>
+
+        {/* Search input */}
+        <div className="relative flex-1">
+          <div className="absolute left-3 top-1/2 -translate-y-1/2">
+            <LuSearch className="text-gray-500 text-xl" />
+          </div>
+          <input
+            type="text"
+            placeholder="Search fashion"
+            className="w-full h-full pl-10 pr-4 border border-gray-300 border-l-0 rounded-r-md focus:outline-none text-gray-500 bg-[#F5F5F5]"
+          />
+        </div>
+      </div>
+      {/* currency and shoping bag's */}
+      <div className="flex items-center gap-4">
+        <div className="flex flex-col  items-center gap-0 ">
+          <p className="p-2 text-[12px] text-[#737373] font-semibold mt-2 ">
+            Deliver To / Currency
+          </p>
+
+          <div className="flex flex-row items-center gap-1.5">
+            <img
+              src="	https://hatscripts.github.io/circle-flags/flags/pk.svg"
+              alt="Pakistan Flag"
+              className="w-5 h-5"
+            />
+            {/* Currency Selector */}
+            <select className="px-3 py-1 text-sm focus:outline-none">
+              <option>PK / PKR</option>
+              <option>US / USD</option>
+              <option>IN / INR</option>
+            </select>
+          </div>
+        </div>
+        {/* Cart Icon */}
+        <button className="relative">
+          <FaShoppingBag className="w-6 h-6" />
+          <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs w-4 h-4 flex items-center justify-center rounded-full">
+            1
+          </span>
+        </button>
+      </div>
+    </div>
+  </>
+);
 
 const Header = () => {
   return (
-    <div className=" container mx-auto w-full h-[85.5px] bg-[#FFFCF8] px-[30px] flex items-center">
-      <div className="flex items-center justify-between w-full">
-        <div className="flex gap-5">
-          <GiHamburgerMenu className="w-6 h-6 cursor-pointer" />
-          <SlEnvolopeLetter className="w-6 h-6 cursor-pointer" />
-        </div>
+    <>
+      <div className="container mx-auto flex flex-col gap-0 ">
+        {/* today offers */}
+        {offerNow}
 
-        <div className="absolute left-1/2 transform -translate-x-1/2">
-          <img
-            src="https://sowears.net/cdn/shop/files/sowears_logo_only_name_grey_165x@2x.png?v=1737857479"
-            alt="logo"
-            className="w-[200px] h-[70px] object-contain"
-          />
-        </div>
+        {/* ---------- */}
 
-        <div className="flex items-center gap-5">
-          <FaUserCircle className="w-6 h-6 cursor-pointer" />
-          <IoMdSearch className="w-6 h-6 cursor-pointer" />
-          <MdOutlineShoppingBag className="w-6 h-6 cursor-pointer" />
-        </div>
+        {/* main header */}
+        {TopHeader}
+
+        <div className="border-b-[1px] border-gray-300"></div>
       </div>
-    </div>
+    </>
   );
 };
 
